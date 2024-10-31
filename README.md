@@ -1,5 +1,58 @@
 # Kafka - Python
 
+## Python version bug
+
+_kafka-python_ has a compatibility issue with python version 3.12. The script certainly runs with **python v3.9**. The known [issue](https://github.com/dpkp/kafka-python/issues/2412).
+
+### Install Python v3.9 and pip
+
+To successfully install python3.9:
+- (optionally) uninstall your current version of python, if any:
+```bash
+sudo apt-get remove python3.12
+```
+- install a PPA (standard method for installing python on Ubuntu):
+```bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+```
+- install python3.9
+```bash
+sudo apt-get install python3.9
+```
+- verify python3.9 is successfully installed:
+```bash
+python3.9 --version
+```
+- install necessary tools for building Python and managing packages:
+```bash
+sudo apt-get update
+sudo apt-get install python3.9-distutils python3.9-venv
+```
+
+- install pip using ensurepip:
+```bash
+python3.9 -m ensurepip --upgrade
+```
+
+- verify installation:
+```bash
+python3.9 -m pip --version
+```
+
+- create venv
+```bash
+python3.9 -m venv myenv
+```
+
+- install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+and the scripts should run correctly.
+
+## Usage
 Scripts for Consumer and Producer connecting to a Kafka Broker.
 The project implements both configurations for connecting to a Kafka Broker
 with PLAINTEXT and SSL communication.
